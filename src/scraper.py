@@ -375,16 +375,31 @@ def detect_transaction(html: str, dl: dict, url: str) -> str | None:
 
 
 def detect_property_id(html: str, soup: BeautifulSoup, dl: dict, url: str) -> str | None:
-    ref = _js_var(html, "IMMOVLAN_REFERENCE")
+    """Return the Immovlan listing reference, or None if this is not a real
+    property detail page.
+
+    Delisted/expired listings return HTTP 200 but redirect to a locality
+    search-results page (no IMMOVLAN_REFERENCE, og:url like
+    ``/en/real-estate/apartment/for-sale/<locality>``). We must NOT mistake the
+    locality slug or the requested URL's tail for a reference, so we only accept
+    a value that looks like a reference (letters followed by digits, e.g.
+    ``rbv47406``) coming from a genuine detail-page signal.
+    """
+    def as_ref(value: str | None) -> str | None:
+        value = (value or "").strip().lower()
+        return value if re.fullmatch(r"[a-z]+\d+", value) else None
+
+    # IMMOVLAN_REFERENCE / dataLayer vlan_code are only present on detail pages.
+    ref = as_ref(_js_var(html, "IMMOVLAN_REFERENCE")) or as_ref(str(dl.get("vlan_code") or ""))
     if ref:
-        return ref.lower()
-    if dl.get("vlan_code"):
-        return str(dl["vlan_code"]).lower()
+        return ref
+    # og:url fallback, but only when it is an actual detail URL (not a search redirect).
     og_url = _og(soup, "og:url") or ""
-    m = re.search(r"/([a-z0-9]+)/?$", og_url, re.I)
-    if m:
-        return m.group(1).lower()
-    return url.rstrip("/").rsplit("/", 1)[-1].lower() or None
+    if "/detail/" in og_url:
+        m = re.search(r"/([a-z]+\d+)/?$", og_url, re.I)
+        if m:
+            return m.group(1).lower()
+    return None
 
 
 def extract_characteristics(soup: BeautifulSoup) -> dict[str, str]:
