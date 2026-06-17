@@ -15,9 +15,12 @@ The project focuses on building a dataset of Belgian houses and apartments, for 
 The scraper works in __3 distinct steps__ that are executed separately:
 
 1. Collects property listing URLs and stores them in a CSV file.
-   The collected URLs include:- Houses- Apartments- Individual units from project listings
-2. Download raw HTML from the URLs.
-3. Extract data from downloaded HTML files.
+   The collected URLs include:
+   - Houses
+   - Apartments
+   - Individual units from project listings
+3. Download raw HTML from the URLs.
+4. Extract data from downloaded HTML files.
 
 
 ## 🗃️ Structure 🗃️
