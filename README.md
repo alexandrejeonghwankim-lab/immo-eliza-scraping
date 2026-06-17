@@ -1,7 +1,7 @@
 # immo-eliza-scraper 🇧🇪
 
-🧰 Built with 🧰
-`<img src="https://www.python.org/static/community_logos/python-logo.png" alt="Python logo" style="width:20%; height:auto;">`
+🧰 Built with 🧰  
+  ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python&logoColor=white)
 
 ---
 
