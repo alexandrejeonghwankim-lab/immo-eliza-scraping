@@ -51,13 +51,13 @@ The scraper works in __3 distinct steps__ that are executed separately:
 3. Run the __URL fetcher__ with  
 
 	```
-	python src/urlfetcher.py
+	python src/url_fetcher.py
 	```
 
 	or
 
 	```
-	python3 src/urlfetcher.py
+	python3 src/url_fetcher.py
 	```
 
 	The URL fetcher will:
