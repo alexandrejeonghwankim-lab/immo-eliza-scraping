@@ -49,7 +49,7 @@ The scraper works in __3 distinct steps__ that are executed separately:
 
 1. Clone the repository to your local machine.  
 
-2. Check and intall the required packages (_requirements.txt_)  
+2. Check and install the required packages (_requirements.txt_)  
 
 3. Run the __URL fetcher__ with  
 
