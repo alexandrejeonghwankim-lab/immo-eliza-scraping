@@ -46,14 +46,13 @@ The scraper works in __3 distinct steps__ that are executed separately:
 
 ## 📓 Dataset output 🗒️ 
 
-The scraper outputs a CSV file containing the consolidated real estate listings.
+The scraper outputs a CSV file containing the consolidated real estate listings. 
+Note that the included [`sale_properties.csv`](./data/sale_properties.csv) was generated on 2026-06-17 and future runs will yield different results.
 
 - Format: CSV
 - Rows: 15,140
 - Columns: 49
-- Data dictionary: [`data_dictionary.txt`](./data_dictionary.txt)
-
-The dataset contains one row per listing and includes fields related to identification, location, price, property characteristics, amenities, and energy information.
+- Data dictionary: [`data_dictionary.txt`](./data/data_dictionary.txt)
 
 ### Main column groups
 
@@ -65,7 +64,7 @@ The dataset contains one row per listing and includes fields related to identifi
 - Energy: heating type, EPC/PEB information, ...
 - Outdoor & Extra : garden, garage, ...
 
-For the full list of fields and their meaning, see [`data_dictionary.txt`](./data_dictionary.txt).  
+For the full list of fields and their meaning, see [`data_dictionary.txt`](./data/data_dictionary.txt).  
 
 ## 💻 Installation & Usage 🔨
 
