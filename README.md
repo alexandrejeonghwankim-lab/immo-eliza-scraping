@@ -44,6 +44,28 @@ The scraper works in __3 distinct steps__ that are executed separately:
     └── scraping_html.py
 ```
 
+## 📓 Dataset output 🗒️ 
+
+The scraper outputs a CSV file containing the consolidated real estate listings.
+
+- Format: CSV
+- Rows: 15,140
+- Columns: 49
+- Data dictionary: [`data_dictionary.txt`](./data_dictionary.txt)
+
+The dataset contains one row per listing and includes fields related to identification, location, price, property characteristics, amenities, and energy information.
+
+### Main column groups
+
+- Identity & Provenance: property id, URL, source, ...
+- Classification: property type, transaction type, ...
+- Price: price, VAT, ...
+- Location: latitude, longitude, ...
+- Property details: bedrooms, bathrooms, ...
+- Energy: heating type, EPC/PEB information, ...
+- Outdoor & Extra : garden, garage, ...
+
+For the full list of fields and their meaning, see [`data_dictionary.txt`](./data_dictionary.txt).  
 
 ## 💻 Installation & Usage 🔨
 
