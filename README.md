@@ -15,9 +15,12 @@ The project focuses on building a dataset of Belgian houses and apartments, for 
 The scraper works in __3 distinct steps__ that are executed separately:
 
 1. Collects property listing URLs and stores them in a CSV file.
-   The collected URLs include:- Houses- Apartments- Individual units from project listings
-2. Download raw HTML from the URLs.
-3. Extract data from downloaded HTML files.
+   The collected URLs include:
+   - Houses
+   - Apartments
+   - Individual units from project listings
+3. Download raw HTML from the URLs.
+4. Extract data from downloaded HTML files.
 
 
 ## 🗃️ Structure 🗃️
@@ -41,23 +44,44 @@ The scraper works in __3 distinct steps__ that are executed separately:
     └── scraping_html.py
 ```
 
+## 📓 Dataset output 🗒️ 
+
+The scraper outputs a CSV file containing the consolidated real estate listings. 
+Note that the included [`sale_properties.csv`](./data/sale_properties.csv) was generated on 2026-06-17 and future runs will yield different results.
+
+- Format: CSV
+- Rows: 15,140
+- Columns: 49
+- Data dictionary: [`data_dictionary.txt`](./data/data_dictionary.txt)
+
+### Main column groups
+
+- Identity & Provenance: property id, URL, source, ...
+- Classification: property type, transaction type, ...
+- Price: price, VAT, ...
+- Location: latitude, longitude, ...
+- Property details: bedrooms, bathrooms, ...
+- Energy: heating type, EPC/PEB information, ...
+- Outdoor & Extra : garden, garage, ...
+
+For the full list of fields and their meaning, see [`data_dictionary.txt`](./data/data_dictionary.txt).  
 
 ## 💻 Installation & Usage 🔨
 
 1. Clone the repository to your local machine.  
 
-2. Check and intall the required packages (_requirements.txt_)  
+2. Check and install the required packages (_requirements.txt_)  
 
 3. Run the __URL fetcher__ with  
 
 	```
-	python src/urlfetcher.py
+	python src/url_fetcher.py
 	```
 
 	or
 
 	```
-	python3 src/urlfetcher.py
+	python3 src/url_fetcher.py
 	```
 
 	The URL fetcher will:
