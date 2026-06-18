@@ -40,12 +40,11 @@ The scraper works in __3 distinct steps__ that are executed separately:
 │   ├── sale_properties.csv
 │   ├── sale_properties_mapdata.csv   # enriched: lat/lon + nearest city
 │   └── property_map2.html            # interactive Leaflet map
-├── dev/
-│   └── map.py                        # geocode + nearest-city enrichment & map
-└── src/
-    ├── url_fetcher.py
-    ├── url_to_html.py
-    └── scraping_html.py
+└── dev/
+    ├── urlfetcher.py                 # step 1 — collect property listing URLs
+    ├── url_to_html.py                # step 2 — download raw HTML for each URL
+    ├── Scraping_HTML.py              # step 3 — extract data from the HTML
+    └── map.py                        # geocode + nearest-city enrichment & map
 ```
 
 
@@ -58,13 +57,13 @@ The scraper works in __3 distinct steps__ that are executed separately:
 3. Run the __URL fetcher__ with  
 
 	```
-	python src/url_fetcher.py
+	python dev/urlfetcher.py
 	```
 
 	or
 
 	```
-	python3 src/url_fetcher.py
+	python3 dev/urlfetcher.py
 	```
 
 	The URL fetcher will:
@@ -78,11 +77,11 @@ The scraper works in __3 distinct steps__ that are executed separately:
 4. Run the __HTML downloader__ with
 
 	```
-	python src/url_to_html.py
+	python dev/url_to_html.py
 	```
 	or
 	```
-	python3 src/url_to_html.py
+	python3 dev/url_to_html.py
 	```
 
 	The URL to HTML script will:
@@ -95,11 +94,11 @@ The scraper works in __3 distinct steps__ that are executed separately:
 5. Run the __data scraper__ with
 
 	```
-	python src/scraping_html.py
+	python dev/Scraping_HTML.py
 	```
 	or
 	```
-	python3 src/scraping_html.py
+	python3 dev/Scraping_HTML.py
 	```
 	The HTML scraping script will:
     - Read the saved raw HTML files
