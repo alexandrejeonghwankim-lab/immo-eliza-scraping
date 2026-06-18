@@ -22,6 +22,7 @@ The scraper works in __3 distinct steps__ that are executed separately:
 3. Download raw HTML from the URLs.
 4. Extract data from downloaded HTML files.
 
+To check the code carbon emission, see inside /results.
 
 ## 🗃️ Structure 🗃️
 
